@@ -1,6 +1,10 @@
 require 'sinatra'
 require 'shotgun'
 
+def initzalise
+  @rand_name
+end
+
 get '/' do
   "Hello World"
 end
@@ -16,5 +20,6 @@ get '/secret' do
 end
 
 get '/cat' do
-  erb(:index)
+  @rand_name = %w(Tranosour Catface Bat).sample
+  erb :index
 end
