@@ -19,7 +19,14 @@ get '/secret' do
 10= A Funeral"
 end
 
-get '/cat' do
-  @rand_name = %w(Tranosour Catface Bat).sample
+get '/random-cat' do
+  @rand_name = params[:name]
+  p params[:name]
   erb :index
+end
+
+post '/form' do
+  @username = params[:username]
+  puts params
+  erb :form
 end
