@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'shotgun'
 
-def initzalise
+def initialize
   @rand_name
 end
 
@@ -20,13 +20,13 @@ get '/secret' do
 end
 
 get '/random-cat' do
-  @rand_name = params[:name]
+  @rand_name = params[:legends]
   p params[:name]
   erb :index
 end
 
-post '/form' do
-  @username = params[:username]
-  puts params
-  erb :form
-end
+# post '/form' do
+#   @username = params[:username]
+#   puts params
+#   erb :form
+# end
