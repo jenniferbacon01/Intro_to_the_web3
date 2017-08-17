@@ -4,13 +4,13 @@ require 'shotgun'
 class MyApp < Sinatra::Base
 
   get '/' do
-    erb :index
+    erb(:index)
   end
 
-  post '/names' do
+  post '/name' do
     p params
     @name = params[:name]
-    erb :play
+    erb(:play)
   end
 
 

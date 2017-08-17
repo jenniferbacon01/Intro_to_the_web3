@@ -7,11 +7,11 @@ require './app.rb'
 #   end
 # end
 
-
 feature 'players entering names' do
   scenario 'player can enter name in form and see it on screen' do
     visit('/')
-    fill_in('Name', with: 'catface')
-    expect('/names').to have_content 'my name is catface'
+    fill_in('name', with: 'catface')
+    click_button('Submit')
+    expect(page).to have_content 'my name is catface'
   end
 end
