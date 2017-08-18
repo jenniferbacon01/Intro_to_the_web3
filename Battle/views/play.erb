@@ -1,5 +1,5 @@
 <h1> names are <%= @name %> and <%= @name2 %></h1>
-<h2> <%= @name %> = 0, <%= @name2 %> = 0</h2>
-<form action="/attack" method="post">
+<h2> <%= @name %> = <%= @hit_points.to_s %>, <%= @name2 %> = <%= @hit_points2.to_s %></h2>
+<form action="/attack" method="get">
   <input type="submit" value="Attack player2">
 </form>

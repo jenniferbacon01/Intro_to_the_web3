@@ -24,16 +24,24 @@ end
 feature 'player1 seeing player2 hit points' do
   scenario 'on play page hit points from players can be seen' do
     sign_in_and_play
-    expect(page).to have_content "catface = 0, waterbottle = 0"
+    expect(page).to have_content "catface = 100, waterbottle = 100"
   end
 end
 
 
 
-feature 'player1 attacking player2' do
-  scenario 'receiving confirmation on play page' do
+feature 'gives confirmation of attack on play page' do
+  scenario 'player1 attacking player2' do
     sign_in_and_play
     click_button('Attack player2')
     expect(page).to have_content "you have hit player2"
+  end
+end
+
+feature 'player2s HP reduces by 10' do
+  scenario 'player1 attacks player2' do
+    sign_in_and_play
+    click_button('Attack player2')
+    expect(page).to have_content "catface = 100, waterbottle = 90"
   end
 end

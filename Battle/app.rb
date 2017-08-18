@@ -11,29 +11,28 @@ class MyApp < Sinatra::Base
   end
 
   post '/name' do
-    # p params
-    # @name = params[:name]
-    # @name2 = params[:name2]
     $player1 = Player.new(params[:name])
     $player2 = Player.new(params[:name2])
-    # session[:name] = params[:name]
-    # session[:name2] = params[:name2]
     redirect '/play'
   end
 
   get '/play' do
     @name = $player1.name
     @name2 = $player2.name
-    # @name = session[:name]
-    # @name2 = session[:name2]
-    # @player1_hit = 0
-    # @player2_hit = 0
+    @hit_points = $player1.hit_points
+    @hit_points2 = $player1.hit_points
     erb(:play)
   end
 
-  post '/attack' do
+  get '/attack' do
+    @player1 = $player1
+    @player2 = $player2
+    @player2.attacked
     erb(:attack)
   end
+
+
+
 
 
   run! if app_file == $0
