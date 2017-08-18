@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'shotgun'
+require_relative './lib/player.rb'
 
 class MyApp < Sinatra::Base
 
@@ -21,9 +22,13 @@ class MyApp < Sinatra::Base
   get '/play' do
     @name = session[:name]
     @name2 = session[:name2]
-    @player1_hit = 0
-    @player2_hit = 0
+    # @player1_hit = 0
+    # @player2_hit = 0
     erb(:play)
+  end
+
+  post '/attack' do
+    erb(:attack)
   end
 
 
